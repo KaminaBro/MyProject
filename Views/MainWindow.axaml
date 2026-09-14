@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MyProject.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MyProject.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Width="300"
+        Height="300"
+        Title="Авторизация">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainViewModel />
+    </Design.DataContext>
+    <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" Margin="50" PlaceholderText="Введите логин" Text="{Binding Login}"/>
+            <TextBox Grid.Row="1" Margin="50" PasswordChar="*" Watermark="Введите пароль" Text="{Binding Password}"/>
+            <Button Grid.Row="2" Content="Ok"  VerticalAlignment="Center"
+                HorizontalAlignment="Center" Width="100" HorizontalContentAlignment="Center"
+                Command="{Binding EnterCommand}" />
+    </Grid>
+
+</Window>
