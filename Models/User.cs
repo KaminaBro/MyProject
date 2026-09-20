@@ -13,13 +13,5 @@ public partial class User
 
     public string? Password { get; set; }
 
-    public string? РольСотрудника { get; set; }
-
-    public string? Фио { get; set; }
-
-    public string? Логин { get; set; }
-
-    public string? Пароль { get; set; }
-
     public virtual ICollection<Zakaz> Zakazs { get; set; } = new List<Zakaz>();
 }

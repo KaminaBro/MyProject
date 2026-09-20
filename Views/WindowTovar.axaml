@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:MyProject.ViewModels"
+		xmlns:model="using:MyProject.Models"
+		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MyProject.WindowTovar"
+		x:DataType="vm:TovarViewModel"
+        Title="WindowTovar">
+	<Window.Resources>
+		<DataTemplate x:Key="tovarTemplate" DataType="model:Tovar">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="200"/>
+					<ColumnDefinition Width="100"/>
+				</Grid.ColumnDefinitions>
+				<Image Grid.Column="0"/>
+				<StackPanel Grid.Column="1">
+					<StackPanel Orientation="Horizontal">
+						<TextBlock FontWeight="Bold" Text="{Binding Category}"/>
+						<TextBlock FontWeight="Bold" Text="||"/>
+						<TextBlock FontWeight="Bold" Text="{Binding NameTovar}"/>
+					</StackPanel>
+					<TextBlock Text="{Binding Description}"/>
+					<TextBlock Text="{Binding Manufacture}"/>
+					<TextBlock Text="{Binding Supplier}"/>
+					<TextBlock Text="{Binding Price}"/>
+					<TextBlock Text="{Binding Unit}"/>
+					<TextBlock Text="{Binding Quantity}"/>
+				</StackPanel>
+				<TextBlock Grid.Column="2" Text="{Binding Discount}"/>
+				</Grid>
+		</DataTemplate>
+	</Window.Resources>
+	<Design.DataContext>
+		<vm:TovarViewModel />
+	</Design.DataContext>
+    <Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="600"/>
+			<ColumnDefinition Width="200"/>
+		</Grid.ColumnDefinitions>
+		<ListBox Grid.Column="0" ItemsSource="{Binding TovarsList}"
+				 ItemTemplate="{StaticResource tovarTemplate}"
+				 SelectedItem="{Binding SelectedTovar}"/>
+	</Grid>
+</Window>

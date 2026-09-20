@@ -102,18 +102,6 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Role)
                 .HasColumnType("character varying")
                 .HasColumnName("role");
-            entity.Property(e => e.Логин)
-                .HasMaxLength(50)
-                .HasColumnName("логин");
-            entity.Property(e => e.Пароль)
-                .HasMaxLength(50)
-                .HasColumnName("пароль");
-            entity.Property(e => e.РольСотрудника)
-                .HasMaxLength(50)
-                .HasColumnName("Роль сотрудника");
-            entity.Property(e => e.Фио)
-                .HasMaxLength(50)
-                .HasColumnName("фио");
         });
 
         modelBuilder.Entity<Zakaz>(entity =>
