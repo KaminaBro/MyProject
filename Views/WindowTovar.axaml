@@ -5,7 +5,8 @@
         xmlns:vm="using:MyProject.ViewModels"
 		xmlns:model="using:MyProject.Models"
 		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="MyProject.WindowTovar"
+        Width="800" Height="600"
+		x:Class="MyProject.WindowTovar"
 		x:DataType="vm:TovarViewModel"
         Title="WindowTovar">
 	<Window.Resources>
