@@ -12,16 +12,17 @@ namespace MyProject.ViewModels
     public partial class TovarViewModel: ViewModelBase
     {
         [ObservableProperty]
-        private ObservableCollection<Tovar> tovarsList = new();
+        private ObservableCollection<Tovar> tovarsList;
         [ObservableProperty]
         private Tovar selectedTovar=null!;
         public TovarViewModel()
         {
-            Load();
+            TovarsList = new ObservableCollection<Tovar>(getAll());
+           // Load();
         }
         private void Load()
         {
-        //    TovarsList.Clear();
+            TovarsList.Clear();
             TovarsList = new ObservableCollection<Tovar>(getAll());
         }
         private List<Tovar> getAll()

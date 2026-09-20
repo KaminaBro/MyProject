@@ -43,7 +43,8 @@
 			<ColumnDefinition Width="600"/>
 			<ColumnDefinition Width="200"/>
 		</Grid.ColumnDefinitions>
-		<ListBox Grid.Column="0" ItemsSource="{Binding TovarsList}"
+		<ListBox SelectionMode="Single"
+				Grid.Column="0" ItemsSource="{Binding TovarsList}"
 				 ItemTemplate="{StaticResource tovarTemplate}"
 				 SelectedItem="{Binding SelectedTovar}"/>
 	</Grid>
