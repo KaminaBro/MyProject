@@ -11,6 +11,7 @@ namespace MyProject.ViewModels
 {
     public partial class TovarViewModel: ViewModelBase
     {
+        public event Action<bool>? CloseRequest;
         [ObservableProperty]
         private ObservableCollection<Tovar> tovarsList;
         [ObservableProperty]

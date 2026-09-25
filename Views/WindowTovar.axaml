@@ -4,34 +4,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:MyProject.ViewModels"
 		xmlns:model="using:MyProject.Models"
+		xmlns:converters="using:MyProject.Converters"
 		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         Width="800" Height="600"
 		x:Class="MyProject.WindowTovar"
 		x:DataType="vm:TovarViewModel"
         Title="WindowTovar">
 	<Window.Resources>
+		<converters:PathToBitmapConverter x:Key="PathToBitmapConverter"/>
 		<DataTemplate x:Key="tovarTemplate" DataType="model:Tovar">
 			<Grid>
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="100"/>
-					<ColumnDefinition Width="200"/>
+					<ColumnDefinition Width="75"/>
+					<ColumnDefinition Width="400"/>
 					<ColumnDefinition Width="100"/>
 				</Grid.ColumnDefinitions>
-				<Image Grid.Column="0"/>
+				<Image Grid.Column="0" Source="{Binding Photo,Converter={StaticResource PathToBitmapConverter}}"/>
 				<StackPanel Grid.Column="1">
 					<StackPanel Orientation="Horizontal">
 						<TextBlock FontWeight="Bold" Text="{Binding Category}"/>
 						<TextBlock FontWeight="Bold" Text="||"/>
 						<TextBlock FontWeight="Bold" Text="{Binding NameTovar}"/>
 					</StackPanel>
-					<TextBlock Text="{Binding Description}"/>
+					<TextBlock Text="{Binding Description}"
+							   TextWrapping="Wrap"
+							   />
 					<TextBlock Text="{Binding Manufacture}"/>
 					<TextBlock Text="{Binding Supplier}"/>
 					<TextBlock Text="{Binding Price}"/>
 					<TextBlock Text="{Binding Unit}"/>
 					<TextBlock Text="{Binding Quantity}"/>
 				</StackPanel>
-				<TextBlock Grid.Column="2" Text="{Binding Discount}"/>
+				<StackPanel Grid.Column="2" Orientation="Horizontal">
+					<TextBlock Text="{Binding Discount}"
+							   FontSize="50" HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+					<TextBlock Text="%" FontSize="50" HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</StackPanel>
 				</Grid>
 		</DataTemplate>
 	</Window.Resources>
